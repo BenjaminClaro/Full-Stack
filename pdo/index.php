@@ -7,7 +7,14 @@
         echo "Erreur : " . $e->getMessage() . "<br>";
         echo "N° : " . $e->getCode();
         die("Fin du script");
-    }       
+    }   
+    $requete = $db->query("SELECT * FROM artist");
+    $tableau = $requete->fetchAll(PDO::FETCH_OBJ);
+    $requete->closeCursor();
+    
+    
+
+
 ?>
 <html>
 <head>
@@ -16,6 +23,10 @@
 </head>
 <html>
 <body>
-
+    <?php foreach ($tableau as $artist): ?>
+        <div>
+            <?= $artist->artist_name ?>
+        </div>
+    <?php endforeach; ?>
 </body>
 </html>
