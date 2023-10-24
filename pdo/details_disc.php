@@ -8,9 +8,10 @@
         echo "N° : " . $e->getCode();
         die("Fin du script");
     }   
-    $requete = $db->query("SELECT * FROM artist");
-    $tableau = $requete->fetchAll(PDO::FETCH_OBJ);
-    $requete->closeCursor();
+    
+    $requete = $db->prepare("select * from disc where disc_id=?");
+    $requete->execute(array($_GET["disc_id"]));
+    $disc = $requete->fetch(PDO::FETCH_OBJ);
     
     
 
@@ -23,10 +24,15 @@
 </head>
 <html>
 <body>
-    <?php foreach ($tableau as $artist): ?>
-        <div>
-            <?= $artist->artist_name ?>
-        </div>
-    <?php endforeach; ?>
+<?php
+    if ($disc->disc_id != NULL){
+        echo " Disc N°", $disc->disc_id;
+        echo " Disc name ", $disc->disc_title ;
+        echo " Disc year ", $disc->disc_year ;
+    }
+    else{
+        echo "Pas de disc trouvé";
+    }
+?>
 </body>
 </html>
