@@ -1,0 +1,69 @@
+SELECT commande.date_commande, commande.nom_client, commande.telephone_client, commande.email_client, commande.adresse_client, plat.libelle, plat.prix
+FROM commande
+JOIN plat ON commande.id_plat = plat.id
+;
+
+
+SELECT plat.libelle, categorie.libelle
+FROM plat
+JOIN categorie ON plat.id_categorie = categorie.id
+;
+
+
+SELECT categorie.libelle, COUNT(plat.libelle)
+FROM categorie
+JOIN plat ON  categorie.id = plat.id_categorie
+GROUP BY categorie.libelle
+;
+
+
+SELECT libelle, SUM(commande.quantite)
+FROM plat
+JOIN commande ON plat.id = commande.id_plat
+GROUP BY commande.id_plat
+ORDER BY SUM(commande.quantite) DESC
+;
+
+
+SELECT plat.libelle, SUM(commande.quantite*plat.prix)
+FROM plat
+INNER JOIN commande ON plat.id = commande.id_plat
+GROUP BY plat.libelle
+ORDER BY SUM(commande.quantite)*plat.prix DESC LIMIT 1
+;
+
+
+SELECT commande.nom_client, SUM(commande.quantite*plat.prix) AS "Chiffre d'affaire"
+FROM commande
+JOIN plat ON commande.id_plat = plat.id
+WHERE commande.etat != "Annulée"
+GROUP BY commande.nom_client
+ORDER BY SUM(commande.quantite*plat.prix) DESC
+;
+
+
+DELETE 
+FROM plat 
+WHERE active != "yes"
+;
+
+
+DELETE 
+FROM commande
+WHERE etat = "Livrée"
+;
+
+
+INSERT INTO categorie (libelle, image, active)
+VALUES ("café", "cat_cafe.jpg", "Yes")
+;
+INSERT INTO plat (libelle, description, prix, image, id_categorie, active)
+VALUES ("café noir", "Bien fort comme il faut", 1.00, "cafe.jpg", 15, "Yes")
+;
+
+
+UPDATE plat
+JOIN categorie ON plat.id_categorie = categorie.id
+SET plat.prix = plat.prix*1.10
+WHERE categorie.libelle = "Pizza"
+;
