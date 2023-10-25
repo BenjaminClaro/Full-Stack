@@ -1,4 +1,10 @@
 <?php
+
+$servername = "localhost";
+$username = "admin";
+$password = "Afpa1234";
+$dbname = "record";
+
     try 
     {        
         $db = new PDO('mysql:host=localhost;charset=utf8;dbname=record', 'admin', 'Afpa1234');
@@ -7,26 +13,72 @@
         echo "Erreur : " . $e->getMessage() . "<br>";
         echo "N° : " . $e->getCode();
         die("Fin du script");
-    }   
-    $requete = $db->query("SELECT * FROM artist");
-    $tableau = $requete->fetchAll(PDO::FETCH_OBJ);
-    $requete->closeCursor();
-    
-    
+    } 
+
+$requete = $db->query("SELECT disc_id FROM disc");
+$compte = $requete->fetchAll(PDO::FETCH_OBJ);
+$requete->closeCursor();
+
+$requete = $db->query("SELECT * FROM disc JOIN artist ON disc.artist_id = artist.artist_id");
+$disc = $requete->fetchAll(PDO::FETCH_OBJ);
+$requete->closeCursor();
 
 
 ?>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Test PDO</title>
-</head>
-<html>
-<body>
-    <?php foreach ($tableau as $artist): ?>
-        <div>
-            <?= $artist->artist_name ?>
+
+
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Liste</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <style> img{width:200px; height:200px;}</style>
+    </head>
+    <body>
+
+
+        <div class="container ">
+        <div class="row">
+            <h1>Liste des disques : (<?= COUNT($compte) ?>)</h1> <div class="col-1"> </div> <a href="" class="btn btn-primary">Ajouter<a>
+
         </div>
-    <?php endforeach; ?>
-</body>
+        </div>
+
+
+        <div class="container">
+            <div class="row">
+            
+
+            <?php foreach ($disc as $disc): ?>
+            <div class="col-6 mt-3">
+                <img src="../img/pictures/<?=$disc->disc_picture ?>">
+                
+                
+                <p style="font-size:25px"><b><?= $disc->disc_title ?></b></p>
+                <p><b><?= $disc->artist_name ?></b></p>
+                <p><b>Label : </b><?= $disc->disc_label ?></p>
+                <p><b>Year : </b><?= $disc->disc_year ?></p>
+                <p><b>Genre : </b><?= $disc->disc_genre ?></p>
+
+
+
+                    <a href="" class="btn btn-primary ">Détails</a>
+
+            </div>
+            <?php endforeach; ?>
+
+                    
+                
+            
+        </div>
+
+        
+
+        
+
+
+
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+    </body>
 </html>
