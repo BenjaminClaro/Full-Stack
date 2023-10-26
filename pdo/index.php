@@ -1,10 +1,5 @@
 <?php
 
-$servername = "localhost";
-$username = "admin";
-$password = "Afpa1234";
-$dbname = "record";
-
     try 
     {        
         $db = new PDO('mysql:host=localhost;charset=utf8;dbname=record', 'admin', 'Afpa1234');
@@ -19,7 +14,7 @@ $requete = $db->query("SELECT disc_id FROM disc");
 $compte = $requete->fetchAll(PDO::FETCH_OBJ);
 $requete->closeCursor();
 
-$requete = $db->query("SELECT * FROM disc JOIN artist ON disc.artist_id = artist.artist_id");
+$requete = $db->query("SELECT * FROM disc JOIN artist ON disc.artist_id = artist.artist_id ORDER BY disc.disc_year");
 $disc = $requete->fetchAll(PDO::FETCH_OBJ);
 $requete->closeCursor();
 
@@ -36,10 +31,11 @@ $requete->closeCursor();
     </head>
     <body>
 
+    <header></header>
 
         <div class="container ">
         <div class="row">
-            <h1>Liste des disques : (<?= COUNT($compte) ?>)</h1> <div class="col-1"> </div> <a href="" class="btn btn-primary">Ajouter<a>
+            <h1>Liste des disques : (<?= COUNT($compte) ?>)</h1> <div class="col-1"> </div> <a href="add_form.php" class="btn btn-primary">Ajouter<a>
 
         </div>
         </div>
