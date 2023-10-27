@@ -36,7 +36,6 @@ $requete->closeCursor();
         <div class="container ">
         <div class="row">
             <h1>Liste des disques : (<?= COUNT($compte) ?>)</h1> <div class="col-1"> </div> <a href="add_form.php" class="btn btn-primary">Ajouter<a>
-
         </div>
         </div>
 
