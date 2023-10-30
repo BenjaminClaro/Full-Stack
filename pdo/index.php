@@ -57,7 +57,7 @@ $requete->closeCursor();
 
 
 
-                    <a href="" class="btn btn-primary ">Détails</a>
+                    <a href="details.php?disc_id=<?=$disc->disc_id?>" class="btn btn-primary ">Détails</a>
 
             </div>
             <?php endforeach; ?>
