@@ -18,7 +18,6 @@ $requete = $db->query("SELECT * FROM disc JOIN artist ON disc.artist_id = artist
 $disc = $requete->fetchAll(PDO::FETCH_OBJ);
 $requete->closeCursor();
 
-
 ?>
 
 
