@@ -1,0 +1,25 @@
+INSERT INTO employe (noemp, nom, prenom, dateemb, nosup, titre, nodep, salaire)
+VALUES (26, "james", "palelegume", "2000-03-26 00:00:00", 12, "secrétaire", 32,9000);
+
+INSERT INTO employe (noemp, nom, prenom, dateemb, nosup, titre, nodep, salaire)
+VALUES (27, "jenny", "delalamp", "2023-03-26 00:00:00", 10, "secrétaire", 32,11000);
+
+INSERT INTO employe (noemp, nom, prenom, dateemb, nosup, titre, nodep, salaire)
+VALUES (28, "paul", "sud", "2023-05-26 00:00:00", 9, "secrétaire", 31,100);
+
+INSERT INTO dept (nodept, nom, noregion)
+VALUES (52, "clown", 6)
+
+
+UPDATE employe
+SET salaire = salaire*1.1
+WHERE noemp = 17;
+
+UPDATE dept
+SET nom = "logistique"
+WHERE nodept = 45;
+
+
+
+DELETE FROM employe
+WHERE nom = "paul";
