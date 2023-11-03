@@ -10,7 +10,7 @@
 
 
 <body>
-    <div id="header"></div>
+<?php require "header.php" ?>
 
     <div>
         <div class="responsive img-fluid w-100 p-5" style="background-image: url(../assets/img/images_the_district/bg2.jpg); background-size: cover;">
@@ -76,7 +76,7 @@
 
     <div class="pb-5"></div>
 
-    <div id="footer"></div>
+    <?php  require 'footer.php'  ?>
 
 
     <script src="../js/contact.js"></script>
