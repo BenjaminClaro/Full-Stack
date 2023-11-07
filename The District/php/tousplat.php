@@ -42,7 +42,7 @@
                           <p class="card-text">
                             Burger au fromage. 5€
                           </p>
-                          <a href="../html/commande.html" class="btn btn-primary">Commander</a>
+                          <a href="commande.php" class="btn btn-primary">Commander</a>
                         </div>
                     </div>
                     <div class="col-1"> </div>

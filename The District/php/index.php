@@ -23,7 +23,7 @@
     <div>
         <div>
             <video width="100%" height="240" autoplay muted loop>
-                <source src="../assets/video/Rotating Cow.mp4" type="video/mp4">
+                <source src="../assets/video/Rotating Cow.mp4" type="video/mp4" alt="Rotating Cow.mp4">
             </video>
         </div>
             <div class="search-container d-none d-md-block text-center">
@@ -37,21 +37,29 @@
 
     <div class="para"></div>
 
-    <div class="container-fluid">
+    <div class="container">
         <div class="text font-weight-bold h2 mt-2 d-none d-md-block">Catégories :</div>
-        <div class="row ">
-            <div class="col-1"> </div>
-            <div class="col-3 m-3 d-none d-md-block hover">Burger <a href="tousplat.html#burger"><img src="../assets/img/images_the_district/category/burger_cat.jpg" alt="" class="img-fluid img-thumbnail"></a></div>
-            <div class="col-3 m-3 d-none d-md-block hover">Salade <a href="tousplat.html#salade"><img src="../assets/img/images_the_district/category/salade_cat.jpg" alt="" class="img-fluid img-thumbnail"></a></div>
-            <div class="col-3 m-3 d-none d-md-block hover">Sandwich <a href="tousplat.html#sandwich"><img src="../assets/img/images_the_district/category/sandwich_cat.jpg" alt="" class="img-fluid img-thumbnail"></a></div>
-        </div>
-        <div class="row">
-            <div class="col-1"> </div>
-            <div class="col-3 m-3 d-none d-md-block hover">Pizza <a href="tousplat.html#pizza"><img src="../assets/img/images_the_district/category/pizza_cat.jpg" alt="" class="img-fluid img-thumbnail"></a></div>
-            <div class="col-3 m-3 d-none d-md-block hover">Wrap <a href="tousplat.html#wrap"><img src="../assets/img/images_the_district/category/wrap_cat.jpg" alt="" class="img-fluid img-thumbnail"></a></div>
-            <div class="col-3 m-3 d-none d-md-block hover">Pâtes <a href="tousplat.html#pate"><img src="../assets/img/images_the_district/category/pasta_cat.jpg" alt="" class="img-fluid img-thumbnail"></a></div>
-        </div>
-    </div>
+        <?php
+        include "DAO.php";
+        
+        ?>
+                
+                <div class="row ">
+                <?php
+                    $categorie = get_categories($db);
+
+                    foreach($categorie as $categorie){
+
+
+
+                        echo '<div class="col-3 d-none d-md-block mt-3 hover">' . $categorie->libelle . '<a href="tousplat.php"><img src="../assets/img/images_the_district/category/' . $categorie->image . '" alt="' . $categorie->libelle . '" class="img-fluid img-thumbnail"></a></div>';
+                        echo '<div class="col-1"> </div>';
+
+                        
+                    }
+                ?>  
+                
+                </div>
 
     <div class="container-fluid">
         <div class="text font-weight-bold h2 mt-2">Plats :</div>
