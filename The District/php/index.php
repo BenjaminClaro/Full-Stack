@@ -64,19 +64,20 @@
     <div class="container-fluid">
         <div class="text font-weight-bold h2 mt-2">Plats :</div>
         <div class="row ">
-            <div class="col-1"> </div>
-            <div class="col-3 m-3 d-none d-md-block ">Pizza margherita <a href="commande.html"><img src="../assets/img/images_the_district/food/pizza-margherita.jpg" alt="" class="img-fluid img-thumbnail"></a></div>
-            <div class="col-3 m-3 d-none d-md-block">Cheese burger<a href="commande.html"><img src="../assets/img/images_the_district/food/cheesburger.jpg" alt="" class="img-fluid img-thumbnail"></a></div>
-            <div class="col-3 m-3 d-none d-md-block">Wrap poulet<a href="commande.html"><img src="../assets/img/images_the_district/food/Food-Name-3461.jpg" alt="" class="img-fluid img-thumbnail" ></a></div>
-        </div>
+
+                <?php
+                    $acceuilplat = get_acceuilplats($db);
+
+                    foreach($acceuilplat as $acceuilplat){
 
 
-        <div class="container-fluid">
-            <div class="m-3 d-block d-md-none"><a href="commande.html"><img src="../assets/img/images_the_district/food/pizza-margherita.jpg" alt="" class="img-fluid img-thumbnail"> Pizza margherita</a></div>
-            <div class="m-3 d-block d-md-none"><a href="commande.html"><img src="../assets/img/images_the_district/food/cheesburger.jpg" alt="" class="img-fluid img-thumbnail"> Cheese burger</a></div>
-            <div class="m-3 d-block d-md-none"><a href="commande.html"><img src="../assets/img/images_the_district/food/Food-Name-3461.jpg" alt="" class="img-fluid img-thumbnail"> Wrap poulet</a></div>
-            <div class="m-3 d-block d-md-none"><a href="commande.html"><img src="../assets/img/images_the_district/food/Food-Name-433.jpeg" alt="" class="img-fluid img-thumbnail"> Burger XL</a></div>
-            <div class="m-3 d-block d-md-none"><a href="commande.html"><img src="../assets/img/images_the_district/food/salad1.png" alt="" class="img-fluid img-thumbnail"> Salade poulet</a></div>
+
+                        echo '<div class="col-3 d-none d-md-block ">' . $acceuilplat->libelle . '<a href="commande.php"><img src="../assets/img/images_the_district/food/' . $acceuilplat->image . '" alt="'. $acceuilplat->libelle .'" class="img-fluid img-thumbnail"></a></div>';
+                        echo '<div class="col-1"> </div>';
+                        echo '<div class="d-block d-md-none"><a href="commande.php"><img src="../assets/img/images_the_district/food/' . $acceuilplat->image . '" alt="'. $acceuilplat->libelle .'" class="img-fluid img-thumbnail"><br>' . $acceuilplat->libelle . '</a></div>';
+                        
+                    }
+                ?>  
         </div>
 
         <div class="pb-5"></div>

@@ -32,12 +32,37 @@
         $categorie = $requete->fetchAll(PDO::FETCH_OBJ);
         $requete->closeCursor();
 
-
-
-        
-
         return $categorie;
 
+    }
+
+
+
+
+
+
+
+    function get_plats($db){
+    
+        
+        $requete = $db->query("SELECT * FROM plat WHERE active='Yes' ORDER BY id LIMIT 6;");
+        $plat = $requete->fetchAll(PDO::FETCH_OBJ);
+        $requete->closeCursor();
+
+        return $plat;
+
+    }
+
+
+
+    function get_acceuilplats($db){
+    
+        
+        $requete = $db->query("SELECT * FROM plat JOIN commande ON commande.id_plat = plat.id WHERE active='Yes' AND etat !='Annulée' GROUP BY commande.id_plat ORDER BY commande.quantite DESC LIMIT 3;");
+        $acceuilplat = $requete->fetchAll(PDO::FETCH_OBJ);
+        $requete->closeCursor();
+
+        return $acceuilplat;
 
     }
 ?>
