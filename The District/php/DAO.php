@@ -65,5 +65,29 @@
         return $acceuilplat;
 
     }
+
+
+
+    function get_catplats($db){
+
+
+
+        $id_categorie = $_GET["id_categorie"];
+
+
+        $requete = "SELECT * FROM plat WHERE id_categorie = :id_categorie ORDER BY id";
+        $stmt = $db->prepare($requete);
+        $stmt->bindParam(":id_categorie", $id_categorie, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $catplat = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $stmt->closeCursor();
+
+
+        
+        return $catplat;
+    }
+
+
 ?>
 </html>

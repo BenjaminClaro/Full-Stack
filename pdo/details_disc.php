@@ -9,7 +9,7 @@
         die("Fin du script");
     }   
     
-    $requete = $db->prepare("select * from disc where disc_id=?");
+    $requete = $db->prepare("SELECT * from disc where disc_id=?");
     $requete->execute(array($_GET["disc_id"]));
     $disc = $requete->fetch(PDO::FETCH_OBJ);
     

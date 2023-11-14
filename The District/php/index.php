@@ -72,9 +72,9 @@
 
 
 
-                        echo '<div class="col-3 d-none d-md-block ">' . $acceuilplat->libelle . '<a href="commande.php"><img src="../assets/img/images_the_district/food/' . $acceuilplat->image . '" alt="'. $acceuilplat->libelle .'" class="img-fluid img-thumbnail"></a></div>';
+                        echo '<div class="col-3 d-none d-md-block ">' . $acceuilplat->libelle . '<a href="commande.php?plat.id=' . $acceuilplat->id . '"><img src="../assets/img/images_the_district/food/' . $acceuilplat->image . '" alt="'. $acceuilplat->libelle .'" class="img-fluid img-thumbnail"></a></div>';
                         echo '<div class="col-1"> </div>';
-                        echo '<div class="d-block d-md-none"><a href="commande.php"><img src="../assets/img/images_the_district/food/' . $acceuilplat->image . '" alt="'. $acceuilplat->libelle .'" class="img-fluid img-thumbnail"><br>' . $acceuilplat->libelle . '</a></div>';
+                        echo '<div class="d-block d-md-none"><a href="commande.php?plat.id='. $acceuilplat->id . '"><img src="../assets/img/images_the_district/food/' . $acceuilplat->image . '" alt="'. $acceuilplat->libelle .'" class="img-fluid img-thumbnail"><br>' . $acceuilplat->libelle . '</a></div>';
                         
                     }
                 ?>  

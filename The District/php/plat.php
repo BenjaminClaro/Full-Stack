@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    
     <link rel="icon" type="image/x-icon" href="../assets/img/images_the_district/the_district_brand/favicon.png">
-    <title>Tous les plats</title>
+    <title>Plats</title>
 </head>
 
 <body>
@@ -30,7 +30,7 @@
 
     
     <div class="container">
-        <div class="text font-weight-bold h2 ">Tout les plats</div>
+        <div class="text font-weight-bold h2" >Plats</div>
                     <?php
           include "DAO.php";
         
@@ -38,32 +38,32 @@
     
         <div class="row ">
         <?php
-          $plat = get_plats($db);
+          $catplat = get_catplats($db);
 
-          foreach($plat as $plat){
+          foreach($catplat as $catplat){
         ?>
             <div class="col-4 mb-3 card d-none d-md-block">
-              <img class="card-img-top" src="../assets/img/images_the_district/food/<?=$plat->image?>" alt="<?=$plat->libelle?>">
+              <img class="card-img-top" src="../assets/img/images_the_district/food/<?=$catplat->image?>" alt="<?=$catplat->libelle?>">
               <div class="card-body">
-                <h4 class="card-title"><?=$plat->libelle?></h4>
+                <h4 class="card-title"><?=$catplat->libelle?></h4>
                 <p class="card-text">
-                  <?=$plat->description?> 
+                  <?=$catplat->description?> 
                 </p>
 
-                <a href="commande.php?plat.id=<?=$plat->id?>" class="btn btn-primary">Commander</a> <?=$plat->prix?>€
+                <a href="commande.php?plat.id=<?=$catplat->id?>" class="btn btn-primary">Commander</a> <?=$catplat->prix?>€
               </div>
             </div>
 
 
 
             <div class="card m-3 d-block d-md-none">
-              <img class="card-img-top" src="../assets/img/images_the_district/food/<?=$plat->image?>" alt="<?=$plat->libelle?>">
+              <img class="card-img-top" src="../assets/img/images_the_district/food/<?=$catplat->image?>" alt="<?=$catplat->libelle?>">
               <div class="card-body">
-                <h4 class="card-title"><?=$plat->libelle?></h4>
+                <h4 class="card-title"><?=$catplat->libelle?></h4>
                 <p class="card-text">
-                  <?=$plat->description?> 
+                  <?=$catplat->description?> 
                 </p>
-                <a href="commande.php?plat.id=<?=$plat->id?>" class="btn btn-primary">Commander</a> <?=$plat->prix?>€
+                <a href="commande.php?plat.id=<?=$catplat->id?>" class="btn btn-primary">Commander</a> <?=$catplat->prix?>€
               </div>
             </div>
         <?php  

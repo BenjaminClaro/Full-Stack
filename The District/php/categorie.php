@@ -32,13 +32,15 @@
                 
                 <div class="row ">
                 <?php
+                
                     $categorie = get_categories($db);
+
 
                     foreach($categorie as $categorie){
 
 
 
-                        echo '<div class="col-3 d-none d-md-block mt-3 hover">' . $categorie->libelle . '<a href="tousplat.php"><img src="../assets/img/images_the_district/category/' . $categorie->image . '" alt="' . $categorie->libelle . '" class="img-fluid img-thumbnail"></a></div>';
+                        echo '<div class="col-3 d-none d-md-block mt-3 hover">' . $categorie->libelle . '<a href="plat.php?id_categorie='. $categorie->id .'"><img src="../assets/img/images_the_district/category/' . $categorie->image . '" alt="' . $categorie->libelle . '" class="img-fluid img-thumbnail"></a></div>';
                         echo '<div class="col-1"> </div>';
 
                         echo '<div class=" m-3 d-block d-md-none ">' . $categorie->libelle . '<br><a href="tousplat.php"><img src="../assets/img/images_the_district/category/' . $categorie->image . '" alt="' . $categorie->libelle . '" class="img-fluid img-thumbnail"></a></div>';
