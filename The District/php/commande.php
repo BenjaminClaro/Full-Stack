@@ -10,7 +10,9 @@
 
 
 <body>
-    <?php require "header.php" ?>
+    <?php require "header.php" ;
+    
+    ?>
 
     <div>
         <div class="responsive img-fluid w-100 p-5" style="background-image: url(../assets/img/images_the_district/bg2.jpg); background-size: cover;">
@@ -25,20 +27,44 @@
 
 
     <form>
+    <div class="container">
         <div class="row">
-            <div class="col-4"></div>
-            <div class="col-3 card m-3 ">
-                <img class="card-img-top" src="../assets/img/images_the_district/food/hamburger.jpg">
-                <div class="card-body">
-                  <h4 class="card-title">Hamburger</h4>
-                  <p class="card-text">
-                    Burger classique. 4€
-                  </p>
-                  <p class="card-text"> Quantité = 1</p>
+            <?php
+                include "DAO.php";
+              $commande = get_commande($db);
+
+              foreach($commande as $commande){
+            ?>
+                <div class="col-4 mb-3 card d-none d-md-block">
+                  <img class="card-img-top" src="../assets/img/images_the_district/food/<?=$commande->image?>" alt="<?=$commande->libelle?>">
+                  <div class="card-body">
+                    <h4 class="card-title"><?=$commande->libelle?></h4>
+                    <p class="card-text">
+                      <?=$commande->description?> 
+                    </p>
+
+                    <p class="card-text">Quantité : 1</a>
+                  </div>
                 </div>
-            </div>
+
+
+
+                <div class="card m-3 d-block d-md-none">
+                  <img class="card-img-top" src="../assets/img/images_the_district/food/<?=$commande->image?>" alt="<?=$commande->libelle?>">
+                  <div class="card-body">
+                    <h4 class="card-title"><?=$commande->libelle?></h4>
+                    <p class="card-text">
+                      <?=$commande->description?> 
+                    </p>
+                    <a href="commande.php?plat.id=<?=$commande->id?>" class="btn btn-primary">Commander</a> <?=$commande->prix?>€
+                  </div>
+                </div>
+            <?php  
+              }
+            ?> 
 
         </div>
+</div>
 
         <div class="row">
             <div class="col-1"></div>
@@ -87,7 +113,6 @@
     <div class="pb-5"></div>
 
     <?php  require 'footer.php'  ?>
-
 
 
     <script src="../js/commande.js"></script>

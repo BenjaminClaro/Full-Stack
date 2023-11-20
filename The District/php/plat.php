@@ -50,7 +50,7 @@
                   <?=$catplat->description?> 
                 </p>
 
-                <a href="commande.php?plat.id=<?=$catplat->id?>" class="btn btn-primary">Commander</a> <?=$catplat->prix?>€
+                <a href="commande.php?id=<?=$catplat->id?>" class="btn btn-primary">Commander</a> <?=$catplat->prix?>€
               </div>
             </div>
 
@@ -63,7 +63,7 @@
                 <p class="card-text">
                   <?=$catplat->description?> 
                 </p>
-                <a href="commande.php?plat.id=<?=$catplat->id?>" class="btn btn-primary">Commander</a> <?=$catplat->prix?>€
+                <a href="commande.php?id=<?=$catplat->id?>" class="btn btn-primary">Commander</a> <?=$catplat->prix?>€
               </div>
             </div>
         <?php  

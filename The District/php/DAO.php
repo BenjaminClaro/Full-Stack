@@ -58,7 +58,7 @@
     function get_acceuilplats($db){
     
         
-        $requete = $db->query("SELECT * FROM plat JOIN commande ON commande.id_plat = plat.id WHERE active='Yes' AND etat !='Annulée' GROUP BY commande.id_plat ORDER BY commande.quantite DESC LIMIT 3;");
+        $requete = $db->query("SELECT * FROM plat LEFT JOIN commande ON commande.id_plat = plat.id WHERE active='Yes' AND etat !='Annulée' GROUP BY plat.id ORDER BY commande.quantite DESC LIMIT 3;");
         $acceuilplat = $requete->fetchAll(PDO::FETCH_OBJ);
         $requete->closeCursor();
 
@@ -86,6 +86,31 @@
 
         
         return $catplat;
+    }
+
+
+
+
+
+
+    function get_commande($db){
+
+
+
+        $id = $_GET["id"];
+
+
+        $requete = "SELECT * FROM plat WHERE id = :id ";
+        $stmt = $db->prepare($requete);
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $commande = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $stmt->closeCursor();
+
+
+        
+        return $commande;
     }
 
 
