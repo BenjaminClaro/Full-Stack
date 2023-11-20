@@ -26,8 +26,8 @@
 
 
 
-    <form>
-    <div class="container">
+    <form action="commande_script.php" method="POST">
+      <div class="container">
         <div class="row">
             <?php
                 include "DAO.php";
@@ -42,8 +42,9 @@
                     <p class="card-text">
                       <?=$commande->description?> 
                     </p>
-
-                    <p class="card-text">Quantité : 1</a>
+                    <input type="hidden" class="form-control" name="id_plat" id="id_plat"  value="<?=$commande->id?>">
+                    <input type="hidden" class="form-control" name="prix" id="prix"  value="<?=$commande->prix?>">
+                    <p class="card-text">Quantité : 1</p>
                   </div>
                 </div>
 
@@ -64,7 +65,7 @@
             ?> 
 
         </div>
-</div>
+      </div>
 
         <div class="row">
             <div class="col-1"></div>
@@ -105,7 +106,7 @@
 
 
 
-        <button type="submit" class="btn btn-primary justify-content-center" id="submit">Envoyer</button>
+        <button type="submit" name="envoi" class="btn btn-primary justify-content-center" id="envoi">Envoyer</button>
 
     </form>
 
