@@ -25,7 +25,7 @@ if(isset($_POST["envoi"])){
     $prix = $_POST["prix"];
     $dates= date('Y-m-d H:i:s');
     $quantite = $_POST["quantite"];
-    $total = ($prix * $quantite + 1);
+    $total = ($prix * $quantite);
 
 
     var_dump($_POST["prix"]);

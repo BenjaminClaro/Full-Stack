@@ -27,9 +27,9 @@
             </video>
         </div>
             <div class="search-container d-none d-md-block text-center">
-                <form action="../html/index.html">
-                <input type="text"  placeholder="Search.." name="search">
-                <button type="submit">Search</i></button>
+                <form action="../php/index.php">
+                <input type="text"  placeholder="Recherche..." name="search">
+                <button type="submit">Recherche</i></button>
                 </form>
             </div>
         </div>
