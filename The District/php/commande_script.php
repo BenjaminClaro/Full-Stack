@@ -24,6 +24,8 @@ if(isset($_POST["envoi"])){
     $id_plat = $_POST["id_plat"];
     $prix = $_POST["prix"];
     $dates= date('Y-m-d H:i:s');
+    $quantite = $_POST["quantite"];
+    $total = ($prix * $quantite + 1);
 
 
     var_dump($_POST["prix"]);
@@ -36,8 +38,8 @@ if(isset($_POST["envoi"])){
                                         VALUES(:id_plat, :quantite, :total, :date_commande, :etat, :nom_client, :telephone_client, :email_client, :adresse_client)");
         
         $requete->bindValue(":id_plat", "$id_plat");
-        $requete->bindValue(":quantite", "1");
-        $requete->bindValue(":total", "$prix");
+        $requete->bindValue(":quantite", "$quantite");
+        $requete->bindValue(":total", "$total");
         $requete->bindValue(":date_commande", $dates);
         $requete->bindValue(":etat", "En cours de livraison");
         $requete->bindValue(":nom_client", "$nom");

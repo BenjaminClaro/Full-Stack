@@ -44,7 +44,11 @@
                     </p>
                     <input type="hidden" class="form-control" name="id_plat" id="id_plat"  value="<?=$commande->id?>">
                     <input type="hidden" class="form-control" name="prix" id="prix"  value="<?=$commande->prix?>">
-                    <p class="card-text">Quantité : 1</p>
+                    <div class="col">
+                      <label for="nom">Quantité :</label>
+                      <input type="text" class="form-control" name="quantite" id="quantite" value="1" required>
+                      
+                    </div>
                   </div>
                 </div>
 
