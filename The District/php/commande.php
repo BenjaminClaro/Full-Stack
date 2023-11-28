@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -43,6 +43,7 @@
                       <?=$commande->description?> 
                     </p>
                     <input type="hidden" class="form-control" name="id_plat" id="id_plat"  value="<?=$commande->id?>">
+                    <input type="hidden" class="form-control" name="nom_plat" id="nom_plat"  value="<?=$commande->libelle?>">
                     <input type="hidden" class="form-control" name="prix" id="prix"  value="<?=$commande->prix?>">
                     <div class="col">
                       <label for="nom">Quantité :</label>
