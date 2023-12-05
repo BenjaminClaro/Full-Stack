@@ -1,7 +1,7 @@
 <?php
     try 
     {        
-        $db = new PDO('mysql:host=localhost;charset=utf8;dbname=the_district', 'admin', 'Afpa1234');
+        $db = new PDO('mysql:host=localhost;charset=utf8;dbname=benjaminc', 'benjaminc', 'Afpa1234');
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (Exception $e) {
         echo "Erreur : " . $e->getMessage() . "<br>";
